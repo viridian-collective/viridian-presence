@@ -1,16 +1,7 @@
 # viridian-presence
 a community token to reward sharing git repos on p2p.
 
-Viridian-Presence is a community-driven project designed to create a transparent and sustainable income stream for members of the Precariat social class who are passionate about Open Source, hacking, and development within the Cardano ecosystem. This innovative community coin rewards individuals for sharing and maintaining Git repositories across peer-to-peer (P2P) networks, fostering a decentralized and collaborative environment for code sharing and development.
-The primary purpose of Viridian-Presence is to address the economic uncertainty faced by developers and contributors who often struggle with irregular income streams while engaging in open-source projects. By providing predictable and transparent income incentives, this project empowers developers to invest consistent time and effort into the Cardano ecosystem. This financial stability enables them to plan their personal and professional lives more effectively around their contributions, reducing the precariousness of their situation.
+## how to run
 
-Necessity for Viridian-Presence arises from the growing recognition of the valuable contributions open-source developers provide to blockchain ecosystems. Current models do not adequately compensate or support the contributors, especially those in vulnerable social strata like the Precariat. By aligning incentives with contributions in a fully transparent manner, Viridian-Presence enhances commitment and accelerates innovation within Cardano, ultimately benefiting the entire community and ecosystem with sustained developer engagement and enriched open-source resources. This initiative is critical to fostering a resilient, equitable, and flourishing technical community.
-
-The Viridian-Presence project fits into the Cardano landscape by complementing Cardano’s broader vision of a decentralized and community-driven ecosystem that supports open-source innovation, transparent governance, and sustainable development. Cardano has been actively advancing open-source initiatives and community governance through member-driven organizations like Intersect MBO and projects such as Veridian, an open-source digital identity platform that emphasizes decentralization, security, and user empowerment.
-
-Viridian-Presence aligns with these principles by providing a transparent and decentralized income model for open-source contributors within the Cardano ecosystem, specifically targeting developers in the Precariat social class. This improves developer engagement, predictability, and sustainability, all of which are critical for nurturing continuous ecosystem growth. By rewarding the sharing of Git repositories on peer-to-peer networks, the project supports decentralized collaboration, a key tenet of Cardano’s decentralized infrastructure and community participation model.
-In summary, Viridian-Presence fits seamlessly into the Cardano landscape by enhancing open-source developer support, promoting decentralized collaboration, and reinforcing the ecosystem’s inclusivity and sustainability goals—all vital elements for Cardano’s ongoing evolution into a robust, community-governed blockchain platform.
-
-Viridian-Presence aligns with and complements other open-source development initiatives overseen or supported by Intersect, especially those that encourage collaboration, transparency, and decentralized software development. It supports projects that incentivize contributors through clear reward mechanisms, enhancing developer engagement, and fostering steady, predictable participation.
-
-
+- ensure cardano-node is running
+- rad node start
