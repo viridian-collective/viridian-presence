@@ -31,3 +31,4 @@ rad node status
 # lets use our PPBL for the code sample
 # https://app.andamio.io/course/4a79b279593a787b79da46df4dc34a3e59b003838dcf48a2f436094d/102/lesson/1
 
+nix run ~/workshop/cardano-node#cardano-cli -- query utxo --testnet-magic 1 --address $(cat payment.addr) --socket-path "$HOME/workshop/cardano-node/configuration/preprod/db/node.socket"
