@@ -19,17 +19,27 @@ seeds_repo() {
 }
 
 count_repos() {
-  # the function will iterate over a type:
-  repo_ids=(
+  # Initialize sum to 0
+  local sum=0
+
+  # Define the list of repo ids
+  local repo_ids=(
     "rad:zkw8cuTp2YRsk1U68HJ9sigHYsTu"
     "rad:z2a7Te5b28CX5YyPQ7ihrdG2EEUsC"
     "rad:zpZ4szHxvnyVyDiy2acfcVEzxza9"
     "rad:z3wx8j3x5bcvAYDJB62zKGM5Y69mM"
   )
 
-  # and check each of the outputs of seeds_repo against the list.
+  # Iterate over the list of repo ids and apply the seeds_repo function
+  for repo_id in "${repo_ids[@]}"; do
+    # Call seeds_repo and add the result to the sum
+    local result=$(seeds_repo "${repo_id}")
+    # echo "Result for $repo_id: $result"
+    sum=$((sum + $result))
+  done
 
-  return 4 #arbitrary number
+  # Print the total sum
+  echo "$sum"
 }
 
 tx_build(){
@@ -55,7 +65,8 @@ main() {
   echo "Presence is a token, this MVP demonstrates core functions of the model:"
   echo "- [ ] can change value by changing repo_ids:"
   #query_address
-  seeds_repo "rad:zkw8cuTp2YRsk1U68HJ9sigHYsTu"
+  # seeds_repo "rad:zkw8cuTp2YRsk1U68HJ9sigHYsTu"
+  count_repos
 
   # utxo=$(select_utxo)
   # tx_amount=$((count_repos * 1000000))
