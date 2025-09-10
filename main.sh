@@ -10,9 +10,8 @@ source ./radicle_integration.sh
 main() {
   loop_over_list
   check_skey
-  radicle_status_check
-  echo "assert address has SCAFFOLD token"
-  /home/alex/workshop/ppbl_2025/query_address.sh
+  find_utxo
+  rad_self
   
   echo "user testing:"
   echo "- [ ] submit a tx"
