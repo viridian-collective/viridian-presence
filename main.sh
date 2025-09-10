@@ -63,14 +63,18 @@ tx_build(){
 
 main() {
   echo "Presence is a token, this MVP demonstrates core functions of the model:"
-  echo "- [ ] can change value by changing repo_ids:"
+  echo "✅ can change value by changing repo_ids"
+  echo "see that we get 100000 tADA per each repo in repo_ids"
   #query_address
   # seeds_repo "rad:zkw8cuTp2YRsk1U68HJ9sigHYsTu"
-  count_repos
-
-  # utxo=$(select_utxo)
-  # tx_amount=$((count_repos * 1000000))
-  # tx_build "$utxo" "$tx_amount"
+  number_of_repos=$(count_repos)
+  echo "rad seeds $number_of_repos"
+  utxo=$(select_utxo)
+  #echo $utxo
+  tx_amount=$(($number_of_repos * 100000))
+  # echo $tx_amount 
+  tx_build "$utxo" "$tx_amount"
+  echo "which results in different output of this error ⬆"
   # sign_transaction
   # send 
 }
