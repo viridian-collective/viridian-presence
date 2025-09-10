@@ -7,28 +7,29 @@ source ./cardano_integration.sh
 source ./radicle_integration.sh
 
 seeds_repo() {
-  repo_id="$1"
-  rad seed | awk -v id="$repo_id" '$2 == id' | grep -q .
-}
-count_seeded_repos() {
-  count=0
-  for repo_id in "$@"; do
-    if seeds_repo "$repo_id"; then
-      count=$((count + 1))
-    fi
-  done
-  echo "$count"
+  # Function to call the oracle and check if a given repo id exists
+  # Returns 1 if the repo id exists, 0 if it doesn't
+  local repo_id="$1"
+  local output=$(rad seed | awk -v id="$repo_id" '$2 == id {print $0}')
+  if [ -n "$output" ]; then
+    echo 1
+  else
+    echo 0
+  fi
 }
 
-control_repos() {
+count_repos() {
+  # the function will iterate over a type:
   repo_ids=(
     "rad:zkw8cuTp2YRsk1U68HJ9sigHYsTu"
     "rad:z2a7Te5b28CX5YyPQ7ihrdG2EEUsC"
     "rad:zpZ4szHxvnyVyDiy2acfcVEzxza9"
     "rad:z3wx8j3x5bcvAYDJB62zKGM5Y69mM"
   )
-  count=$(count_seeded_repos "${repo_ids[@]}")
-  echo "$count"
+
+  # and check each of the outputs of seeds_repo against the list.
+
+  return 4 #arbitrary number
 }
 
 tx_build(){
@@ -53,11 +54,13 @@ tx_build(){
 main() {
   echo "Presence is a token, this MVP demonstrates core functions of the model:"
   echo "- [ ] can change value by changing repo_ids:"
-  utxo=$(select_utxo)
-  seeded_count=$(control_repos)
-  tx_amount=$((seeded_count * 1000000))
-  tx_build "$utxo" "$tx_amount"
-  sign_transaction
+  #query_address
+  seeds_repo "rad:zkw8cuTp2YRsk1U68HJ9sigHYsTu"
+
+  # utxo=$(select_utxo)
+  # tx_amount=$((count_repos * 1000000))
+  # tx_build "$utxo" "$tx_amount"
+  # sign_transaction
   # send 
 }
 
