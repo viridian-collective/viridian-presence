@@ -10,11 +10,10 @@ source ./radicle_integration.sh
 main() {
   loop_over_list
   check_skey
-  find_utxo
+  sign_transaction
   rad_self
   
   echo "user testing:"
-  echo "- [ ] submit a tx"
   echo "- [ ] value of SCA depends on rad node outputs"
   echo "integrate smart contract building framework"
 }

@@ -1,1 +1,3 @@
 payment.skey
+*.signed
+*.draft
