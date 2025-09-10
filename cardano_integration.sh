@@ -1,5 +1,10 @@
 #!/bin/sh
 
+select_utxo() {
+  # Returns a hardcoded UTXO string
+  echo "d0dd175a6c1e1aa0bc4958ae59cd82c8375d51c292cf7721bef01b5d93f3b268#3"
+}
+
 sign_transaction() {
   # Set the variables
   sender_key="/home/alex/workshop/ppbl_2025/payment.skey"
@@ -15,8 +20,12 @@ sign_transaction() {
 }
 
 query_address() {
-  # here I am using a preprod wallet I used in PPBL
-  /home/alex/workshop/ppbl_2025/query_address.sh
+  # $1 is the path to the address file; if not provided, use the default
+  address_file="${1:-/home/alex/workshop/ppbl_2025/payment.addr}"
+  nix run ~/workshop/cardano-node#cardano-cli -- query utxo \
+    --testnet-magic 1 \
+    --address "$(cat "$address_file")" \
+    --socket-path "$HOME/workshop/cardano-node/configuration/preprod/db/node.socket"
 }
 
 find_utxo_with_token() {

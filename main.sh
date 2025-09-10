@@ -20,24 +20,45 @@ count_seeded_repos() {
   echo "$count"
 }
 
-derive_transaction_amount_from_repo_list() {
+control_repos() {
   repo_ids=(
     "rad:zkw8cuTp2YRsk1U68HJ9sigHYsTu"
     "rad:z2a7Te5b28CX5YyPQ7ihrdG2EEUsC"
-    "rad:zpZ3szHxvnyVyDiy2acfcVEzxza9"
+    "rad:zpZ4szHxvnyVyDiy2acfcVEzxza9"
     "rad:z3wx8j3x5bcvAYDJB62zKGM5Y69mM"
   )
   count=$(count_seeded_repos "${repo_ids[@]}")
-  echo "Number of seeded repos: $count"
+  echo "$count"
+}
+
+tx_build(){
+  # Inputs to the function
+  tx_in="$1"          # Example: "234f1da31797d3e6c517f47c11b0cc3c0f486ecadb0f5d10df1c4c133b87ee34#1"
+  tx_out_amount="$2"  # Example: "5000000"
+
+  receiver="addr_test1vq394fgcjsperquw2y7z22uhzzsf8dvrdexn8lxrh46tjrqcw7l3q"
+  sender="addr_test1vq394fgcjsperquw2y7z22uhzzsf8dvrdexn8lxrh46tjrqcw7l3q"
+  testnet_magic="1"
+  
+  # The command to build the transaction
+  nix run ~/workshop/cardano-node#cardano-cli -- conway transaction build \
+    --testnet-magic "$testnet_magic" \
+    --tx-in "$tx_in" \
+    --tx-out "$receiver"+"$tx_out_amount" \
+    --change-address "$sender" \
+    --socket-path "$HOME/workshop/cardano-node/configuration/preprod/db/node.socket" \
+    --out-file simple-tx.draft
 }
 
 main() {
-  echo "Presence is a token, This is Milestone: outlining the contract model"
-  derive_transaction_amount_from_repo_list 
-  # we will use this number in our 
-  build_transaction # simplify and send tADA instead of any other token.
-  sign_transaction
-  send 
+  echo "Presence is a token, this MVP demonstrates core functions of the model:"
+  echo "- [ ] can change value by changing repo_ids:"
+  utxo=$(select_utxo)
+  seeded_count=$(control_repos)
+  tx_amount=$((seeded_count * 1000000))
+  tx_build "$utxo" "$tx_amount"
+  # sign_transaction
+  # send 
 }
 
 main "$@"
