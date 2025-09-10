@@ -70,12 +70,11 @@ main() {
   number_of_repos=$(count_repos)
   echo "rad seeds $number_of_repos"
   utxo=$(select_utxo)
-  #echo $utxo
-  tx_amount=$(($number_of_repos * 100000))
+  # echo $utxo
+  tx_amount=$(($number_of_repos * 1000000))
   # echo $tx_amount 
   tx_build "$utxo" "$tx_amount"
-  echo "which results in different output of this error ⬆"
-  # sign_transaction
+  sign_transaction
   # send 
 }
 
