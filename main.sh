@@ -57,7 +57,7 @@ main() {
   seeded_count=$(control_repos)
   tx_amount=$((seeded_count * 1000000))
   tx_build "$utxo" "$tx_amount"
-  # sign_transaction
+  sign_transaction
   # send 
 }
 
