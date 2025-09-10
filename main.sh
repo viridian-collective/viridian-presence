@@ -21,29 +21,23 @@ count_seeded_repos() {
 }
 
 derive_transaction_amount_from_repo_list() {
-	repo_ids=(
-  "rad:zkw8cuTp2YRsk1U68HJ9sigHYsTu"
-  "rad:z2a7Te5b28CX5YyPQ7ihrdG2EEUsC"
-  "rad:zpZ4szHxvnyVyDiy2acfcVEzxza9"
-  "rad:z3wx8j3x5bcvAYDJB62zKGM5Y69mM"
-)
-count=$(count_seeded_repos "${repo_ids[@]}")
-echo "Number of seeded repos: $count"
+  repo_ids=(
+    "rad:zkw8cuTp2YRsk1U68HJ9sigHYsTu"
+    "rad:z2a7Te5b28CX5YyPQ7ihrdG2EEUsC"
+    "rad:zpZ3szHxvnyVyDiy2acfcVEzxza9"
+    "rad:z3wx8j3x5bcvAYDJB62zKGM5Y69mM"
+  )
+  count=$(count_seeded_repos "${repo_ids[@]}")
+  echo "Number of seeded repos: $count"
 }
 
 main() {
   echo "Presence is a token, This is Milestone: outlining the contract model"
-  echo "having experimented with functions, API methods:"
-  check_skey
-  sign_transaction
-  echo "we now need to obtain the principal type for the mvp"
   derive_transaction_amount_from_repo_list 
   # we will use this number in our 
-  build_transaction
-  # then reuse 
-  # sign_transaction
-  # and ultimately
-  send # simplify and send tADA instead of any other token.
+  build_transaction # simplify and send tADA instead of any other token.
+  sign_transaction
+  send 
 }
 
 main "$@"
