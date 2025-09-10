@@ -6,8 +6,29 @@ source ./utils.sh
 source ./cardano_integration.sh
 source ./radicle_integration.sh
 
+seeds_repo() {
+  repo_id="$1"
+  rad seed | awk -v id="$repo_id" '$2 == id' | grep -q .
+}
+count_seeded_repos() {
+  count=0
+  for repo_id in "$@"; do
+    if seeds_repo "$repo_id"; then
+      count=$((count + 1))
+    fi
+  done
+  echo "$count"
+}
+
 derive_transaction_amount_from_repo_list() {
-	echo ""
+	repo_ids=(
+  "rad:zkw8cuTp2YRsk1U68HJ9sigHYsTu"
+  "rad:z2a7Te5b28CX5YyPQ7ihrdG2EEUsC"
+  "rad:zpZ4szHxvnyVyDiy2acfcVEzxza9"
+  "rad:z3wx8j3x5bcvAYDJB62zKGM5Y69mM"
+)
+count=$(count_seeded_repos "${repo_ids[@]}")
+echo "Number of seeded repos: $count"
 }
 
 main() {
