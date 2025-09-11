@@ -7,8 +7,8 @@ source ./cardano_integration.sh
 source ./radicle_integration.sh
 
 main() {
-  echo "Presence is a token, this MVP demonstrates core functions of the model:"
-  echo "✅ can change value by changing repo_ids"
+  echo "Presence is a token, this milestone demos core functions of the model:"
+  echo "✅ can vary value sent from one UTXO to another using outputs of a query to a program"
   number_of_repos=$(count_repos) # the list is hardcoded in the function
   tx_amount=$(($number_of_repos * 1000000)) 
   echo "$tx_amount" # changing the list changes this output
@@ -16,8 +16,12 @@ main() {
   utxo=$(select_utxo)
   tx_build "$utxo" "$tx_amount"
   tx_sign
+  tx_send
   echo "what are our next steps?"
-  # send 
+  echo "[ ] write a test that proves the claim above"
+  echo "[ ] reduce the problem to a set of propositions encodable in the UPLC"
+  echo "[ ] imagine a naive implementation"
+  # a server maintains a list of pairs (ada address, rad address), uses rad telemetry to query rad node and infer integrity of the system and values used in transaction building. 
 }
 
 main "$@"

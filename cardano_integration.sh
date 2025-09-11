@@ -1,5 +1,17 @@
 #!/bin/sh
 
+tx_send(){
+
+  testnet_magic="1"
+  echo "sending tx disabled, testnet_magic is $testnet_magic"
+  
+  # uncomment to enable sending:
+  # nix run ~/workshop/cardano-node#cardano-cli -- conway transaction submit \
+  #   --testnet-magic $testnet_magic \
+  #   --tx-file simple-tx.signed \
+  #   --socket-path "$HOME/workshop/cardano-node/configuration/preprod/db/node.socket"\
+}
+
 select_utxo() {
   # Returns a hardcoded UTXO string
   echo "d0dd175a6c1e1aa0bc4958ae59cd82c8375d51c292cf7721bef01b5d93f3b268#3"
