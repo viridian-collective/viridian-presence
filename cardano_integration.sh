@@ -5,16 +5,33 @@ select_utxo() {
   echo "d0dd175a6c1e1aa0bc4958ae59cd82c8375d51c292cf7721bef01b5d93f3b268#3"
 }
 
-sign_transaction() {
-  # Set the variables
+tx_build(){
+  # Inputs to the function
+  tx_in="$1"          # Example: "234f1da31797d3e6c517f47c11b0cc3c0f486ecadb0f5d10df1c4c133b87ee34#1"
+  tx_out_amount="$2"  # Example: "5000000"
+
+  receiver="addr_test1vq394fgcjsperquw2y7z22uhzzsf8dvrdexn8lxrh46tjrqcw7l3q"
+  sender="addr_test1vq394fgcjsperquw2y7z22uhzzsf8dvrdexn8lxrh46tjrqcw7l3q"
+  testnet_magic="1"
+  
+  nix run ~/workshop/cardano-node#cardano-cli -- conway transaction build \
+    --testnet-magic "$testnet_magic" \
+    --tx-in "$tx_in" \
+    --tx-out "$receiver"+"$tx_out_amount" \
+    --change-address "$sender" \
+    --socket-path "$HOME/workshop/cardano-node/configuration/preprod/db/node.socket" \
+    --out-file simple-tx.draft
+}
+
+tx_sign() {
+  # signs the transaction using the hardcoded skey:
   sender_key="/home/alex/workshop/ppbl_2025/payment.skey"
   
-  # The command to build the transaction
   nix run ~/workshop/cardano-node#cardano-cli -- conway transaction sign \
     --signing-key-file $sender_key \
     --testnet-magic 1 \
     --tx-body-file /home/alex/workshop/ppbl_2025/simple-tx.draft \
-    --out-file simple-tx.signed
+    --out-file simple-tx.signed 
 
   echo "✅ signed! check the file!"
 }
@@ -29,7 +46,6 @@ query_address() {
 }
 
 find_utxo_with_token() {
-  # It has some Scaffold token, identified by the unique value:
   query_address | grep '5e74a87d8109db21fe3d407950c161cd2df7975f0868e10682a3dbfe\.7070626c323032342d73636166666f6c642d746f6b656e'
 }
 
@@ -41,6 +57,7 @@ check_skey() {
       echo "✅File does not exist!"
     fi
 }
+
 query_tip() {
   echo "Connecting to Cardano node..."
   echo "here you shoud see the output of the query-tip command:"
