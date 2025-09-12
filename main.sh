@@ -16,11 +16,10 @@ main() {
   utxo=$(select_utxo)
   tx_build "$utxo" "$tx_amount"
   tx_sign
+  echo "✅ if Estimated transaction fee: 170253 Lovelace can be found a few lines above"
   tx_send
   echo "what are our next steps?"
   echo "[ ] write a test that proves the claim above"
-  echo "[ ] reduce the problem to a set of propositions encodable in the UPLC"
-  echo "[ ] imagine a naive implementation"
   # a server maintains a list of pairs (ada address, rad address), uses rad telemetry to query rad node and infer integrity of the system and values used in transaction building. 
 }
 
