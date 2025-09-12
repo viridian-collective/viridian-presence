@@ -19,8 +19,8 @@ main() {
   echo "✅ if Estimated transaction fee: 170253 Lovelace can be found a few lines above"
   tx_send
   echo "what are our next steps?"
-  echo "[ ] write a test that proves the claim above"
-  # a server maintains a list of pairs (ada address, rad address), uses rad telemetry to query rad node and infer integrity of the system and values used in transaction building. 
+  echo "There is no clear connection between seeding and active involvement"
+  echo "MVP: there is a customizable login page, tokens minted as a reward for daily login"
 }
 
 main "$@"
