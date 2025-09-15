@@ -1,36 +1,30 @@
-model where user has to lock tokens to earn more tokens.
-should the total amount of token be limited somehow?
-currently we are using a scheduler to move ADA, what if we use only ADA for the system?
-why not just run a scheduler off-chain and create a validator with a list of pKh's in the Datum?
-Is there a way to enable partcipants to mint the token themselves while ensuring the system is robust to hacks?
-Eligibility requirements need to be encoded for UPLC!
+Invent a token-based mechanism
 
-We have two pathways: either develop the centralized scheduler and look out for telemetry on rad node; or we could continue exploring ways ensure that the oracle can't be fooled by malicious user: if we allow users to mint the token and promise to buy it - how can we ensure only users who are eligible are able to mint the token? 
+valide the theories underlying the Paid Open Source model.
 
-**Eligibility**: 
-Participants must seed a set of repositories defined by the Intersect Open Source Committee to be eligible for rewards.
+Clarify the vision of programmable money as a Digital Public Good: a transparent and inclusive economy that powers Open Source software and other DPG's. 
+Develop context for the need to discriminate fairly as a problem in governance. 
+Use Universal Basic Income as a corner concept and imagine what the world with UBI powered by programmable money. 
+Connect to key metrics for blockchain ecosystems and estimate the parameters dependend on requirements for UBI: eg. number of people and monthly allowance. 
+Promote Principled negotiation as framework to apply to the problem of fair discrimination. 
+Highlight importance of the problem in designing programmable money following the principles in Sustainable Development Goals.  
+Support with the re-imagining contributor agreements as tokens. Token ownership defines membership in the set of contributors, which creates a clear boundary between UBI powered by the treasury and a model that supports Paid Open Source.
 
-**Locking Mechanism**: Participants can lock their PRESENCE tokens for a specified period (e.g., 1-12 months) to demonstrate their commitment to the Open Source community.
+The problem then can be reframed into the need to describe transparent criteria to be programmed into the minting script, token burning and blacklisting, vesting or staking. 
 
-**Rewards**: The Intersect Open Source Committee will lobby the Cardano Treasury for ADA, which will be used to buy back and burn PRESENCE tokens. This will create a deflationary pressure on the token, increasing its value over time.
+review of existing models:
+radicle:
+- user recieves token A
+- user vests token A and meets oracle criteria to recieve token B
+
+githoney:
+- developer proposes feature
+- project accepts feature
+
+andamio:
+- a contract validates the set of conditions that makes a person eligible to mint a Contributor token.- the Contributor token is vested into a task.
+- the user browses Project's task board to pick a task and vest their Contributor token into the task.- task completion is validated with the process agreed upon through a governance process.
 
 
-* **Locking Periods**: 1, 3, 6, and 12 months
-* **Rewards Distribution**: Quarterly buyback and burn of PRESENCE tokens using ADA from the Cardano Treasury
 
-## what do we want to encourage? how does it align with Open Source values?
-
-### Benefits of the Decentralized Model
-1. **Increased Security**: By leveraging smart contracts and decentralized oracles, the system becomes more resistant to manipulation and central points of failure.
-2. **Transparency and Trust**: The use of blockchain technology ensures that all transactions and contributions are transparent and tamper-proof, fostering trust within the community.
-3. **Autonomy**: A decentralized incentive structure allows the community to govern itself more effectively, with clear and predetermined rules (as encoded in smart contracts) guiding the distribution of rewards.
-
-### Implementation Roadmap
-1. **Smart Contract Development**: Design and deploy the smart contract that will manage the ADA escrow, token burning, and reward distribution.
-2. **Decentralized Oracle Integration**: Implement a decentralized oracle system to verify users' contributions, including seeding uptime and conformance to the supported software list.
-3. **Token Burning and Reward Mechanism**: Develop the user interface and backend logic for users to burn their tokens and claim ADA rewards.
-4. **Community Engagement**: Educate the community about the new tokenomic model, its benefits, and how to participate and contribute to the ecosystem effectively.
-
-### Conclusion
-The proposed tokenomic model for viridian-presence aims to create a robust, decentralized incentive structure that rewards meaningful contributions to the ecosystem. By leveraging smart contracts, decentralized oracles, and a clear set of rules for earning and burning tokens, we can foster a vibrant community that contributes value to the Intersect MBO Open Source economy. The next steps involve the technical implementation of the outlined components and engaging with the community to ensure a smooth transition to the new model.
 
