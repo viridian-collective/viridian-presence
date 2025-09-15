@@ -7,20 +7,23 @@ source ./cardano_integration.sh
 source ./radicle_integration.sh
 
 main() {
-  echo "Presence is a token, this milestone demos core functions of the model:"
-  echo "✅ can vary value sent from one UTXO to another using outputs of a query to a program"
+  echo "Presence is a token, this milestone is the proof-of-concept for an oracle"
+  echo "☑️ can vary value sent from one UTXO to another using outputs of a query to a program"
   number_of_repos=$(count_repos) # the list is hardcoded in the function
   tx_amount=$(($number_of_repos * 1000000)) 
-  echo "$tx_amount" # changing the list changes this output
-
+  echo "changing the list changes this output "$tx_amount""
   utxo=$(select_utxo)
   tx_build "$utxo" "$tx_amount"
   tx_sign
-  echo "✅ if Estimated transaction fee: 170253 Lovelace can be found a few lines above"
   tx_send
-  echo "what are our next steps?"
-  echo "There is no clear connection between seeding and active involvement"
-  echo "MVP: there is a customizable login page, tokens minted as a reward for daily login"
+  echo "✅ if Estimated transaction fee: 170253 Lovelace can be found a few lines above"
+  echo "Question: Seeding cardano-node on radicle - is it a meaningful contribution?"
+  echo "MVP: a token to power inclusive economies around innovation and investment"
+  echo "Goal: improve the direct rewards mechanism adopted for the Code-for-Us with a token-based mechanism"
+  echo "GMBL: a token with the supply that increases exponentially with each mint"
+  echo "CUBI: UBI on Cardano - what would eligibility criteria look like?"
+  echo "idea: gameify roles with daily login reward"
+  echo "idea: using mpfs to produce types used in a sound definition of a meaningful contribution"
 }
 
 main "$@"

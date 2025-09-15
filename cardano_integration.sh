@@ -45,7 +45,7 @@ tx_sign() {
     --tx-body-file /home/alex/workshop/ppbl_2025/simple-tx.draft \
     --out-file simple-tx.signed 
 
-  echo "✅ signed! check the file!"
+  echo "tx signed! check the file!"
 }
 
 query_address() {
