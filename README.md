@@ -1,7 +1,9 @@
 # viridian-presence
-a community token to reward sharing git repos on p2p aimed at creating Open Source economy around Intersect MBO. Our pitch is that rewarding seeding git repos on p2p is rewarding meaningful contributions to the ecosystem.
+a token to develop vision of Cardano as the programmable money to power Open Source.
 
 ## **Milestone 1: Proof of Concept for the Oracle-Driven Transaction Evidence**
+
+a token to reward sharing git repos on p2p aimed at creating Open Source economy around Intersect MBO. Our pitch is that rewarding seeding git repos on p2p is rewarding meaningful contributions to the ecosystem.
 In the naive implmementation of the proof of concept we envision a centralized service distributing rewards based on reading telemetry data from a third party app.
 
 ### **Deliverables**
