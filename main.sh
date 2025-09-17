@@ -24,6 +24,8 @@ main() {
   echo "CUBI: UBI on Cardano - what would eligibility criteria look like?"
   echo "idea: gameify roles with daily login reward"
   echo "idea: using mpfs to produce types used in a sound definition of a meaningful contribution"
+  echo "How can native tokens be used for the definition of a meaningful contribution?"
+  echo "A meaningful contribution is a promise given by a contributor, expressed as the contributor vesting their Contributor token into a project's contract"
 }
 
 main "$@"
