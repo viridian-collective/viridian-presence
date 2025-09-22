@@ -27,11 +27,8 @@ In the naive implmementation of the proof of concept we envision a centralized s
 - Screenshots or command output showing a successful run and the linkage between Radicle data and transaction value.
 
 ## Milestone 2: Tokenomic Model for Decentralized Incentive Structure
-Building on  proof of concept where a centralized service distributed rewards based on reading telemetry data from a third-party app, we aim to enhance this model to create a decentralized incentive structure. This milestone outlines a tokenomic model for the viridian-presence token, focusing on a system where an amount of ADA is escrowed in a smart contract. This smart contract will serve as the backbone for guaranteeing rewards to users based on their contributions, specifically through the burning of the token and demonstrating continuous involvement with the project.
+Building on  proof of concept where a centralized service distributed rewards based on reading telemetry data from a third-party app, we aim to propose improvements to existing reward programs.
 
-### Concepts:
-- **Escrowed ADA**: A portion of ADA will be locked in a smart contract. This ADA serves as the reward pool for users who burn their viridian-presence tokens.
-- **Token Burning Mechanism**: Users who wish to claim their rewards in ADA will need to burn their viridian-presence tokens. The smart contract is programmed to verify the burning event and subsequently release the corresponding amount of ADA from the escrow.
-- **Earning/Minting Tokens**: Users earn or mint new viridian-presence tokens by contributing to the ecosystem, primarily through seeding repositories and contributing to supported software projects. In the MVP this process will be validated through a barebones solution replacting (decentralized oracle system, which reads telemetry data from the Radicle node and other relevant sources.)
-- **token vesting**: Introduce a vesting period for earned tokens, where users must wait a certain amount of time before they can burn their tokens for ADA. This would encourage long-term contributions and community engagement.
+It is a tokenomic model in which the token is an on-chain represenation of the right to recieve a reward of a certain amount of money for a certain period of time. A sponsor creates a stipend, a vesting contract associated with an nft. The token is then distributed via an auction. The candidates then bid value of their service to the network in terms of hourly commitment and cost of an hour of work. 
 
+Building contract model of this process will illuminate types and functions required for an item of software for automating contributor agreement management and minimizing the off-chain footprint.
