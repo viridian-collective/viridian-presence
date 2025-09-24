@@ -71,6 +71,19 @@ assumption: Trading stipend tokens in a second-price auction provides better way
 The number of stipend contracts is a parameter, increase of this parameter with time would indicate that the program is popular with the voters, which implies it has positive impact on the ecosystem.
 
  **How will the Universal Basic Income (UBI) concept be implemented**, and what parameters will be used to determine the monthly allowance and number of people supported?
+We will look into the stipend lottery as potential implementation for now. 
 Assumption: At the level of Improvement Proposals Cardano supports automated transactions. Then an automated transaction could fill the stipend contract with the utility token indefinitely, contingent on sustainability of the network - adoption of its services. 
 
 **How to reward contributors for tacit skill transfer?**
+
+# Memo:
+Question: Seeding cardano-node on radicle - is it a meaningful contribution?"
+MVP: a token to power inclusive economies around innovation and investment"
+Goal: improve the direct rewards mechanism adopted for the Code-for-Us with a token-based mechanism"
+GMBL: a token with the supply that increases exponentially with each mint"
+CUBI: UBI on Cardano - what would eligibility criteria look like?"
+idea: gameify roles with daily login reward"
+idea: using mpfs to produce types used in a sound definition of a meaningful contribution"
+How can native tokens be used for the definition of a meaningful contribution?"
+A meaningful contribution is a promise given by a contributor, expressed as the contributor vesting their Contributor token into a project's contract"
+

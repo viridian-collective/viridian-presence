@@ -1,5 +1,9 @@
 #!/bin/sh
 
+test_vesting_validator(){
+  (cd ~/workshop/potential-robot && npm run test -- viridian)
+}
+
 tx_send(){
 
   testnet_magic="1"
