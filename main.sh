@@ -21,9 +21,8 @@ select_participant() {
   echo "${PARTICIPANTS[$index]}"
 }
 
-# Function to generate a mock validator address (Bech32 encoded with human-readable prefix)
 mock_validator_address() {
-  # Use a hardcoded string for the human-readable prefix and Bech32 encoding
+  # Function to generate a mock validator address (Bech32 encoded with human-readable prefix)
   echo "addr_test1vqe09nt0rxgwn83upxuhqzs4aqrzdjqmhrh5l4g5hh4kc6qsncmku"
 }
 
@@ -39,11 +38,7 @@ deposit_funds() {
 main() {
   echo "🎭presence is a token and a type" 
   echo "2️⃣ this milestone is the proof-of-concept for a lottery"
-  # a contract address vests an amount of money for the token holder
   deposit_funds
-  # The token is distributed via a lottery on the set of participants
-  # trust the lottery winners to spend money as they see fit
-  # 🦄the set of participants requries off-chain processing, KYC
 }
 
 main "$@"
