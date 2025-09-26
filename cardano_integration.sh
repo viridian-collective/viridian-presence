@@ -1,11 +1,10 @@
 #!/bin/sh
 
 test_vesting_validator(){
-  (cd ~/workshop/potential-robot && npm run test -- viridian)
+  (cd ~/workshop/potential-robot && npm run test -- viridian --watch=false)
 }
 
 tx_send(){
-
   testnet_magic="1"
   echo "sending tx disabled, testnet_magic is $testnet_magic"
   
@@ -72,6 +71,10 @@ check_skey() {
     else
       echo "✅File does not exist!"
     fi
+}
+
+check_cardano-node_version() {
+  nix run ~/workshop/cardano-node#cardano-node -- version 2>/dev/null | grep "cardano-node"
 }
 
 query_tip() {
