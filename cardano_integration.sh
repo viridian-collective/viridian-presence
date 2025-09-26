@@ -1,7 +1,9 @@
 #!/bin/sh
 
-test_vesting_validator(){
-  (cd ~/workshop/potential-robot && npm run test -- viridian --watch=false)
+query_tip() {
+  echo "Connecting to Cardano node..."
+  echo "here you shoud see the output of the query-tip command:"
+  ~/workshop/cardano-node/query-tip.sh
 }
 
 tx_send(){
@@ -85,13 +87,10 @@ check_skey_exists() {
   fi
 }
 
-
 check_cardano-node_version() {
   nix run ~/workshop/cardano-node#cardano-node -- version 2>/dev/null | grep "cardano-node"
 }
 
-query_tip() {
-  echo "Connecting to Cardano node..."
-  echo "here you shoud see the output of the query-tip command:"
-  ~/workshop/cardano-node/query-tip.sh
+test_vesting_validator(){
+  (cd ~/workshop/potential-robot && npm run test -- viridian --watch=false)
 }

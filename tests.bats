@@ -1,10 +1,16 @@
 #!/usr/bin/env bats
 
 load './cardano_integration.sh'
+load './radicle_integration.sh'
 
 @test "cardano-node is installed" {
   run check_cardano-node_version
   [ "$output" = "cardano-node 10.3.1 - linux-x86_64 - ghc-9.6" ]
+}
+
+@test "radicle node is running" {
+  run rad_status_check
+  [ "$output" = "✓ Node is running." ]
 }
 
 @test "can query tip" {
