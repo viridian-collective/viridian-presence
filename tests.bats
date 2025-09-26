@@ -4,24 +4,20 @@ load './cardano_integration.sh'
 load './radicle_integration.sh'
 
 @test "cardano-node is installed" {
-  run check_cardano-node_version
+  run check_cardano_node_version
   [ "$output" = "cardano-node 10.3.1 - linux-x86_64 - ghc-9.6" ]
 }
 
-@test "radicle node is running" {
-  run rad_status_check
-  [ "$output" = "✓ Node is running." ]
-}
-
-@test "can query tip" {
+@test "query tip" {
   bats::on_failure() {
-    echo "looks like cardano-node is not running"
+    echo "make sure cardano-node is running"
   }
   run query_tip
+  # check here if the node is synced up!
   [ "$status" -eq 0 ]
 }
 
-@test "can produce UTXO" {
+@test "produce UTXO" {
   run select_utxo 
   [ "$status" -eq 0 ]
   [ "$output" = "d0dd175a6c1e1aa0bc4958ae59cd82c8375d51c292cf7721bef01b5d93f3b268#3" ]
@@ -41,4 +37,30 @@ load './radicle_integration.sh'
 @test "tests for the validator pass" {
   run test_vesting_validator
   [ "$status" -eq 0 ]
+}
+
+@test "query address" {
+  run query_address
+  [ "$status" -eq 0 ]
+}
+
+@test "compile simple tx" {
+  utxo=$(select_utxo)
+  run tx_build $utxo 5000000
+  [ "$status" -eq 0 ]
+}
+
+@test "sign tx draft" {
+  run tx_sign
+  [ "$status" -eq 0 ]
+}
+
+@test "M1: radicle node is running" {
+  run rad_status_check
+  [ "$output" = "✓ Node is running." ]
+}
+
+@test "M1: 4 of the repos are seeded" {
+  run count_repos
+  [ "$output" = "4" ]
 }

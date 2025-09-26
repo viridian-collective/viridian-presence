@@ -87,7 +87,7 @@ check_skey_exists() {
   fi
 }
 
-check_cardano-node_version() {
+check_cardano_node_version() {
   nix run ~/workshop/cardano-node#cardano-node -- version 2>/dev/null | grep "cardano-node"
 }
 
