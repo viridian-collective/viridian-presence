@@ -5,16 +5,16 @@
 source ./utils.sh
 source ./cardano_integration.sh
 
-# List of participants in the lottery (Cardano public key hashes)
-PARTICIPANTS=(
-  "foxtrot"
-  "uniform"
-  "charlie"
-  "kilo"
-)
 
 # Function to randomly select a participant from the list
 select_participant() {
+# List of participants in the lottery (Cardano public key hashes)
+  local PARTICIPANTS=(
+    "foxtrot"
+    "uniform"
+    "charlie"
+    "kilo"
+  )
   # Use $RANDOM to generate a random index for the PARTICIPANTS array
   local index=$(( RANDOM % ${#PARTICIPANTS[@]} ))
   echo "${PARTICIPANTS[$index]}"
@@ -27,8 +27,8 @@ mock_validator_address() {
 
 createRewardUtxo(){
   local participant=$(select_participant)
-  echo "to deposit funds claimable by the winner:"
-  echo " $participant"
+  echo "select winner: $participant"
+  echo "deposit funds..."
   echo "- winner pKh is serialized"
   echo "- validator compiled"
   echo "- transaction drafted"
@@ -41,17 +41,10 @@ claimReward(){
   echo "winner claims rewards:"
 }
 
-# Function to deposit funds to the selected participant
-deposit_funds() {
+main() {
+  echo "2️⃣ this milestone is the proof-of-concept for a lottery"
   createRewardUtxo
   claimReward
-}
-
-
-main() {
-  echo "🎭presence is a token and a type" 
-  echo "2️⃣ this milestone is the proof-of-concept for a lottery"
-  deposit_funds
 }
 
 main "$@"
