@@ -64,7 +64,7 @@ find_utxo_with_token() {
   query_address | grep '5e74a87d8109db21fe3d407950c161cd2df7975f0868e10682a3dbfe\.7070626c323032342d73636166666f6c642d746f6b656e'
 }
 
-check_skey() {
+check_skey_in_pwd() {
   # Check if the payment.skey is in the pwd
     if [ -f payment.skey ]; then
       echo "❗skey exists!"
@@ -72,6 +72,19 @@ check_skey() {
       echo "✅File does not exist!"
     fi
 }
+
+check_skey_exists() {
+  local file_name=payment.skey
+  local directory='/home/alex/workshop/ppbl_2025/' 
+  local file_path="${directory}/${file_name}"
+
+  if [ -f "${file_path}" ]; then
+    echo "True"
+  else
+    echo "False"
+  fi
+}
+
 
 check_cardano-node_version() {
   nix run ~/workshop/cardano-node#cardano-node -- version 2>/dev/null | grep "cardano-node"

@@ -13,7 +13,6 @@ load './cardano_integration.sh'
   }
   run query_tip
   [ "$status" -eq 0 ]
-  #[ "$output" = "cardano-node 10.3.1 - linux-x86_64 - ghc-9.6" ]
 }
 
 @test "can produce UTXO" {
@@ -22,10 +21,17 @@ load './cardano_integration.sh'
   [ "$output" = "d0dd175a6c1e1aa0bc4958ae59cd82c8375d51c292cf7721bef01b5d93f3b268#3" ]
 }
 
-@test "skey is not stored in pwd" {
-  run check_skey
+@test "skey is accessible" {
+  run check_skey_exists 
+  [ "$status" -eq 0 ]
+  [ "$output" = "True" ]
+}
+
+@test "skey is not stored with the project" {
+  run check_skey_in_pwd
   [ "$output" = "✅File does not exist!" ]
 }
+
 @test "tests for the validator pass" {
   run test_vesting_validator
   [ "$status" -eq 0 ]
