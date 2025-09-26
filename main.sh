@@ -38,7 +38,7 @@ deposit_funds() {
 
 main() {
   echo "🎭presence is a token and a type" 
-  echo "2️⃣this milestone is the proof-of-concept fo a stipend lottery"
+  echo "2️⃣ this milestone is the proof-of-concept for a lottery"
   # a contract address vests an amount of money for the token holder
   deposit_funds
   # The token is distributed via a lottery on the set of participants
