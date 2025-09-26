@@ -22,11 +22,12 @@ select_utxo() {
   echo "d0dd175a6c1e1aa0bc4958ae59cd82c8375d51c292cf7721bef01b5d93f3b268#3"
 }
 
-tx_build(){
-  # Inputs to the function
+tx_build_simple(){
+  # this tx sends some ada from the address to itself
   tx_in="$1"          # Example: "234f1da31797d3e6c517f47c11b0cc3c0f486ecadb0f5d10df1c4c133b87ee34#1"
   tx_out_amount="$2"  # Example: "5000000"
 
+  # the address is hardcoded:
   receiver="addr_test1vq394fgcjsperquw2y7z22uhzzsf8dvrdexn8lxrh46tjrqcw7l3q"
   sender="addr_test1vq394fgcjsperquw2y7z22uhzzsf8dvrdexn8lxrh46tjrqcw7l3q"
   testnet_magic="1"
@@ -49,8 +50,6 @@ tx_sign() {
     --testnet-magic 1 \
     --tx-body-file /home/alex/workshop/ppbl_2025/simple-tx.draft \
     --out-file simple-tx.signed 
-
-  echo "tx signed! check the file!"
 }
 
 query_address() {
@@ -69,7 +68,7 @@ find_utxo_with_token() {
 check_skey_in_pwd() {
   # Check if the payment.skey is in the pwd
     if [ -f payment.skey ]; then
-      echo "❗skey exists!"
+      echo "❗skey is in the pwd!"
     else
       echo "✅File does not exist!"
     fi

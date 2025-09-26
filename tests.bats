@@ -13,12 +13,12 @@ load './radicle_integration.sh'
     echo "make sure cardano-node is running"
   }
   run query_tip
-  # check here if the node is synced up!
+  # assert here the node is synced up!
   [ "$status" -eq 0 ]
 }
 
 @test "produce UTXO" {
-  run select_utxo 
+  run select_utxo # mock function
   [ "$status" -eq 0 ]
   [ "$output" = "d0dd175a6c1e1aa0bc4958ae59cd82c8375d51c292cf7721bef01b5d93f3b268#3" ]
 }
@@ -34,11 +34,6 @@ load './radicle_integration.sh'
   [ "$output" = "✅File does not exist!" ]
 }
 
-@test "tests for the validator pass" {
-  run test_vesting_validator
-  [ "$status" -eq 0 ]
-}
-
 @test "query address" {
   run query_address
   [ "$status" -eq 0 ]
@@ -46,7 +41,7 @@ load './radicle_integration.sh'
 
 @test "compile simple tx" {
   utxo=$(select_utxo)
-  run tx_build $utxo 5000000
+  run tx_build_simple $utxo 5000000
   [ "$status" -eq 0 ]
 }
 
@@ -63,4 +58,9 @@ load './radicle_integration.sh'
 @test "M1: 4 of the repos are seeded" {
   run count_repos
   [ "$output" = "4" ]
+}
+
+@test "M2: tests for the validator pass" {
+  run test_vesting_validator
+  [ "$status" -eq 0 ]
 }
