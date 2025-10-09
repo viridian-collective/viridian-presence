@@ -1,34 +1,31 @@
 # viridian-presence
-a token to develop vision of Cardano as the programmable money to power Open Source.
 
-## **Milestone 1: Proof of Concept for the Oracle-Driven Transaction Evidence**
+The Viridian Presence project is dedicated to realizing the vision of Cardano as the programmable money to empower Open Source initiatives. Our mission is to cultivate a thriving ecosystem that harnesses Cardano's cutting-edge blockchain technology, fostering the growth and development of open-source projects, and ultimately contributing to Cardano's recognition as a Digital Public Good.
 
-a token to reward sharing git repos on p2p aimed at creating Open Source economy around Intersect MBO. Our pitch is that rewarding seeding git repos on p2p is rewarding meaningful contributions to the ecosystem.
-In the naive implmementation of the proof of concept we envision a centralized service distributing rewards based on reading telemetry data from a third party app.
+## Towards UBI.
 
-### **Deliverables**
-- A script or set of scripts that:
-  - Queries a Radicle node to determine the number of seeded repositories from a defined list.
-  - Uses this value to compute the transaction output amount (e.g., `num_seeded_repos * 1_000_000`).
-  - Selects a UTXO as transaction input.
-  - Builds a Cardano transaction draft where the output value reflects the Radicle data.
-  - Signs the transaction (optionally submits, if required for the milestone).
+Universal Basic Income (UBI) is proposed as an ideal incentive structure for the Viridian Presence project, aiming to empower Open Source initiatives by harnessing Cardano's blockchain technology. UBI's appeal in this context stems from its potential to address the opportunity cost faced by contributors when choosing to participate in Open Source projects.
 
+1. **Opportunity Cost Mitigation**: Contributors often face an opportunity cost when deciding to work on Open Source projects, as the time and effort could be spent on paid work or other lucrative ventures. UBI, by providing a basic income guarantee, can help mitigate this cost. It ensures that contributors have a financial safety net, allowing them to focus on Open Source work without fearing significant financial hardship.
 
-### **Acceptance Criteria**
-- The transaction output value **must change** if the Radicle-seeded repo count changes.
+2. **Incentivizing Contributions**: UBI can serve as a universal incentive, encouraging participation in Open Source projects without the need for direct payment for each contribution. This can foster a more collaborative and less transactional community, where contributors are motivated by the potential for personal and collective growth rather than just financial gain.
 
-### **Evidence of Completion**
-- An unsigned Cardano transaction file (`simple-tx.draft` or similar) showing the output value determined by the Radicle oracle.
-- Log/output demonstrating the Radicle repo count, calculation of the transaction value, and transaction build/sign steps.
-- Repository or submission containing:
-  - The scripts.
-  - The unsigned transaction file.
-- Screenshots or command output showing a successful run and the linkage between Radicle data and transaction value.
+3. **Fostering Innovation**: By alleviating financial pressures, UBI can enable contributors to experiment and innovate within Open Source projects more freely. This can lead to the development of novel solutions and technologies, aligning with the project's goal of advancing Cardano's ecosystem.
 
-## Milestone 2: Tokenomic Model for Decentralized Incentive Structure
-Building on  proof of concept where a centralized service distributed rewards based on reading telemetry data from a third-party app, we aim to propose improvements to existing reward programs.
+### Addressing Feasibility Issues with the Expected Utility Model
 
-It is a tokenomic model in which the token is an on-chain represenation of the right to recieve a reward of a certain amount of money for a certain period of time. A sponsor creates a stipend, a vesting contract associated with an nft. The token is then distributed via an auction. The candidates then bid value of their service to the network in terms of hourly commitment and cost of an hour of work. 
+The Anscombe & Aumann Subjective Expected Utility (SEU) framework offers a practical alternative to Universal Basic Income (UBI) by addressing some feasibility challenges in implementing a guaranteed payment system. Instead of providing every contributor with a fixed income, the SEU approach involves selecting eligible participants through a random reward mechanism that aligns incentives with expected utility theory, ensuring motivation while maintaining economic sustainability.
 
-Building contract model of this process will illuminate types and functions required for an item of software for automating contributor agreement management and minimizing the off-chain footprint.
+By structuring participation rewards as probabilistic outcomes, contributors receive an expected value of compensation that encourages engagement without requiring continuous universal payouts. This system provides financial incentives in a way that recognizes individual contributions and effort while limiting the cumulative costs associated with guaranteed basic incomes.
+
+Key benefits of applying SEU as a substitute for UBI in this context include:
+
+- **Sustainable Incentive Structure**: Rather than guaranteeing a fixed sum to everyone, random selection of recipients creates a sustainable mechanism with controlled funding, permitting ongoing support for contributors without overwhelming resource demands.
+
+- **Aligned Motivation through Expected Value**: Participants perceive the reward system as fair and motivating since the expected benefit of involvement—calculated probabilistically—provides a rational reason to contribute, consistent with the principles of subjective expected utility.
+
+- **Mitigated Administrative Complexity**: Targeting randomly selected eligible contributors reduces logistical overhead compared to universal disbursements and allows fine-tuning of parameters like reward size and frequency to optimize participation and innovation.
+
+- **Compliance with Regulations**: By carefully designing the reward mechanism without direct reference to chance-based games or lotteries, the system can navigate regulatory constraints while still leveraging randomness to distribute rewards effectively.
+
+This approach effectively replicates the core advantage of UBI—offsetting opportunity costs and encouraging Open Source contributions—while addressing the practical barriers to implementing guaranteed basic income schemes within the Viridian Presence project and the broader Cardano ecosystem.

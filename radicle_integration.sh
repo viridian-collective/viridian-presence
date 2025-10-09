@@ -36,7 +36,6 @@ count_repos() {
   echo "$sum"
 }
 
-status_check() {
-  echo "assert rad node is running via the console message"
-  rad node status
+rad_status_check() {
+  rad node status | grep "✓ Node is running."
 }
