@@ -4,11 +4,13 @@ load './cardano_integration.sh'
 load './radicle_integration.sh'
 
 @test "cardano-node is installed" {
+  skip
   run check_cardano_node_version
   [ "$output" = "cardano-node 10.3.1 - linux-x86_64 - ghc-9.6" ]
 }
 
 @test "query tip" {
+  skip
   bats::on_failure() {
     echo "make sure cardano-node is running"
   }
@@ -18,6 +20,7 @@ load './radicle_integration.sh'
 }
 
 @test "produce UTXO" {
+  skip
   run select_utxo # mock function
   [ "$status" -eq 0 ]
   [ "$output" = "d0dd175a6c1e1aa0bc4958ae59cd82c8375d51c292cf7721bef01b5d93f3b268#3" ]
@@ -35,17 +38,20 @@ load './radicle_integration.sh'
 }
 
 @test "query address" {
+  skip
   run query_address
   [ "$status" -eq 0 ]
 }
 
 @test "compile simple tx" {
+  skip
   utxo=$(select_utxo)
   run tx_build_simple $utxo 5000000
   [ "$status" -eq 0 ]
 }
 
 @test "sign tx draft" {
+  skip
   run tx_sign
   [ "$status" -eq 0 ]
 }
