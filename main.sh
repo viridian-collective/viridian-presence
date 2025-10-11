@@ -6,7 +6,7 @@ source ./smp.sh
 source ./cardano_integration.sh
 
 main() {
-  echo "2️⃣ this milestone is"
+  echo "2️⃣ this milestone is mere fulfilling work"
 }
 
 main "$@"

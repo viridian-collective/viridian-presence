@@ -1,3 +1,8 @@
+## How to run
+`./main`
+or
+`tests.bats`
+
 # viridian-presence
 
 The Viridian Presence project is dedicated to realizing the vision of Cardano as the programmable money to empower Open Source initiatives. Our mission is to cultivate a thriving ecosystem that harnesses Cardano's cutting-edge blockchain technology, fostering the growth and development of open-source projects, and ultimately contributing to Cardano's recognition as a Digital Public Good.
